@@ -1,15 +1,14 @@
 <?php
 
-use BasicApp\System\SystemEvents;
+use CodeIgniter\Events\Events;
 
-SystemEvents::onPreSystem(function()
+Events::on('pre_system', function()
 {
     helper(['t', 'current_lang']);
-});
 
-SystemEvents::onValidation(function($event)
-{
-    $event->ruleSets[] = BasicApp\Validators\HtmlTagsValidator::class;
-    $event->ruleSets[] = BasicApp\Validators\NotHtmlTagsValidator::class;
-    $event->ruleSets[] = BasicApp\Validators\NotSpecialCharsValidator::class;
+    $config = config(\Config\Validation::class);
+
+    $config->ruleSets[] = BasicApp\Validators\HtmlTagsValidator::class;
+    $config->ruleSets[] = BasicApp\Validators\NotHtmlTagsValidator::class;
+    $config->ruleSets[] = BasicApp\Validators\NotSpecialCharsValidator::class;
 });
