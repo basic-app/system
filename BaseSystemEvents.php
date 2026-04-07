@@ -9,10 +9,6 @@ namespace BasicApp\System;
 use BasicApp\Core\Event;
 use BasicApp\System\Events\SystemResetEvent;
 use BasicApp\System\Events\SystemSeedEvent;
-use BasicApp\System\Events\SystemSeed2Event;
-use BasicApp\System\Events\SystemSeed3Event;
-use BasicApp\System\Events\SystemSeed4Event;
-use BasicApp\System\Events\SystemSeed5Event;
 
 abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
 {
@@ -53,7 +49,7 @@ abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
 
     public static function seed2(array $params = [])
     {
-        $event = new SystemSeed2Event;
+        $event = new SystemSeedEvent;
 
         $event->params = $params;
 
@@ -62,7 +58,7 @@ abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
 
     public static function seed3(array $params = [])
     {
-        $event = new SystemSeed3Event;
+        $event = new SystemSeedEvent;
 
         $event->params = $params;
 
@@ -71,7 +67,7 @@ abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
 
     public static function seed4(array $params = [])
     {
-        $event = new SystemSeed4Event;
+        $event = new SystemSeedEvent;
 
         $event->params = $params;
 
@@ -80,7 +76,7 @@ abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
 
     public static function seed5(array $params = [])
     {
-        $event = new SystemSeed5Event;
+        $event = new SystemSeedEvent;
 
         $event->params = $params;
 
