@@ -9,13 +9,20 @@ namespace BasicApp\System;
 use BasicApp\Core\Event;
 use BasicApp\System\Events\SystemResetEvent;
 use BasicApp\System\Events\SystemSeedEvent;
+use BasicApp\System\Events\SystemSeed2Event;
+use BasicApp\System\Events\SystemSeed3Event;
+use BasicApp\System\Events\SystemSeed4Event;
+use BasicApp\System\Events\SystemSeed5Event;
 
 abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
 {
-
     const EVENT_UPDATE = 'ba:update';
 
     const EVENT_SEED = 'ba:seed';
+    const EVENT_SEED2 = 'ba:seed2';
+    const EVENT_SEED3 = 'ba:seed3';
+    const EVENT_SEED4 = 'ba:seed4';
+    const EVENT_SEED5 = 'ba:seed5';
 
     const EVENT_RESET = 'ba:reset';
     
@@ -44,6 +51,42 @@ abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
         static::trigger(static::EVENT_SEED, $event);
     }
 
+    public static function seed2(array $params = [])
+    {
+        $event = new SystemSeed2Event;
+
+        $event->params = $params;
+
+        static::trigger(static::EVENT_SEED2, $event);
+    }
+
+    public static function seed3(array $params = [])
+    {
+        $event = new SystemSeed3Event;
+
+        $event->params = $params;
+
+        static::trigger(static::EVENT_SEED3, $event);
+    }
+
+    public static function seed4(array $params = [])
+    {
+        $event = new SystemSeed4Event;
+
+        $event->params = $params;
+
+        static::trigger(static::EVENT_SEED4, $event);
+    }
+
+    public static function seed5(array $params = [])
+    {
+        $event = new SystemSeed5Event;
+
+        $event->params = $params;
+
+        static::trigger(static::EVENT_SEED5, $event);
+    }
+
     public static function reset(array $params = [])
     {
         $event = new SystemResetEvent;
@@ -63,9 +106,28 @@ abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
         static::on(static::EVENT_SEED, $callback);
     }
 
+    public static function onSeed2($callback)
+    {
+        static::on(static::EVENT_SEED2, $callback);
+    }
+
+    public static function onSeed3($callback)
+    {
+        static::on(static::EVENT_SEED3, $callback);
+    }
+
+    public static function onSeed4($callback)
+    {
+        static::on(static::EVENT_SEED4, $callback);
+    }
+
+    public static function onSeed5($callback)
+    {
+        static::on(static::EVENT_SEED5, $callback);
+    }
+
     public static function onReset($callback)
     {
         static::on(static::EVENT_RESET, $callback);
     }
-
 }

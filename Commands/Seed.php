@@ -10,7 +10,6 @@ use BasicApp\System\SystemEvents;
 
 class Seed extends \BasicApp\Core\Command
 {
-
     protected $group = 'Basic App';
     
     protected $name = 'ba:seed';
@@ -20,6 +19,9 @@ class Seed extends \BasicApp\Core\Command
     public function run(array $params)
     {
         SystemEvents::seed($params);
+        SystemEvents::seed2($params);
+        SystemEvents::seed3($params);
+        SystemEvents::seed4($params);
+        SystemEvents::seed5($params);
     }
-
 }
