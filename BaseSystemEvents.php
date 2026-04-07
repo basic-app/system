@@ -9,6 +9,7 @@ namespace BasicApp\System;
 use BasicApp\Core\Event;
 use BasicApp\System\Events\SystemResetEvent;
 use BasicApp\System\Events\SystemSeedEvent;
+use BasicApp\System\Events\SystemUpdateEvent;
 
 abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
 {
@@ -24,16 +25,9 @@ abstract class BaseSystemEvents extends \CodeIgniter\Events\Events
     
     public static function update(array $params = [])
     {
-        $event = new Event;
+        $event = new SystemUpdateEvent;
 
-        if (array_search('reset', $params) !== false)
-        {
-            $event->reset = true;
-        }
-        else
-        {
-            $event->reset = false;
-        }
+        $event->params = $params;
 
         static::trigger(static::EVENT_UPDATE, $event);
     }
